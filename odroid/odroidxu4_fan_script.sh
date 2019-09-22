@@ -1,5 +1,7 @@
 #!/bin/sh
 
+# source: https://magazine.odroid.com/article/fan-control-tailor-odroid-xu4-perfect-settings/
+
 #script to modify temps points for fan speed
 
 ###	 Logic table
