@@ -7,12 +7,15 @@
 ###	 Logic table
 # trip point  |    0 |   1 |    2 | 
 # temp        |   43 |  55 |   67 | 
-# fan speed   |  204 | 225 |  240 |
+# fan speed   |  120 | 180 |  240 |
+
+# where 120/255 ~ 47%
+#       180/255 ~ 70%
 
 echo -e "\n\t Scripts needs to be executed as superuser\n"
 
 # set temp variables
-TRIP_POINT_0=43000
+TRIP_POINT_0=45000
 TRIP_POINT_1=55000
 TRIP_POINT_2=67000
 
