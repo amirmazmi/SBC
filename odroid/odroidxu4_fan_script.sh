@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # source: https://magazine.odroid.com/article/fan-control-tailor-odroid-xu4-perfect-settings/
 
