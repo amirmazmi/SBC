@@ -7,6 +7,7 @@
 # temp        |   43 |  55 |   67 | 
 # fan speed   |  204 | 225 |  240 |
 
+echo -e "\n\t Scripts needs to be executed as superuser\n"
 
 # set temp variables
 TRIP_POINT_0=43000
@@ -28,7 +29,7 @@ echo $TRIP_POINT_2 > /sys/devices/virtual/thermal/thermal_zone1/trip_point_2_tem
 echo $TRIP_POINT_2 > /sys/devices/virtual/thermal/thermal_zone2/trip_point_2_temp
 echo $TRIP_POINT_2 > /sys/devices/virtual/thermal/thermal_zone3/trip_point_2_temp
 
-
+echo -e "\n\t Finished modifying fan trip points\n\n"
 
 #---------------------------------------------------------------------------------------------------------
 # other commands
