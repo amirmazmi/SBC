@@ -1,0 +1,29 @@
+# Raspberry Pi 3B+ 
+
+
+### To read cpu temps  
+`vcgencmd measure_temp`  
+<br><br>
+
+### Lightning symbol - under power
+To check if having power supply issue:  
+`vcgencmd get_throttled`
+
+0: under-voltage (0xX0001)  
+1: arm frequency capped (0xX0002 or 0xX0003 with under-voltage)  
+2: currently throttled (0xX0004 or 0xX0005 with under-voltage)  
+
+16: under-voltage has occurred (0x1000X)  
+17: arm frequency capped has occurred (0x2000X or 0x3000X also under-voltage occurred)  
+18: throttling has occurred (0x4000X or 0x5000X also under-voltage occurred)  
+
+under-voltage occurs when voltage drops below 4.63V. The Pi is throttled  
+arm frequency capped occurs with temp > 80'C  
+over-temperature occurs with temp > 85'C. The Pi is throttled  
+
+Throttling removes turbo mode, which reduces core voltage, and sets arm and gpu frequencies to non-turbo value.  
+Capping just limits the arm frequency (somewhere between 600MHz and 1200MHz) to try to avoid throttling.  
+If you are throttled and not under-voltage then you can assume over-temperature. (confirm with vcgencmd measure_temp).  
+
+
+<br><br><br>
