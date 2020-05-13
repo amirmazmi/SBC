@@ -27,7 +27,8 @@ If you are throttled and not under-voltage then you can assume over-temperature.
 <br><br>
 
 
-### To check output flags
+### To check output flags  
+
 ```
 python3 -c "print(bin(int('0x50000',16)))"
 
@@ -44,6 +45,8 @@ python3 -c "print(bin(int('0x50000',16)))"
 ```
 https://harlemsquirrel.github.io/shell/2019/01/05/monitoring-raspberry-pi-power-and-thermal-issues.html
 
+May be easier to see if the binary is padded with zeroes since `bin(2)` is equal to `0b10`.   
+Therefore pad to `0b00000000000000000010`.
 
 
 <br><br><br>
