@@ -24,6 +24,26 @@ over-temperature occurs with temp > 85'C. The Pi is throttled
 Throttling removes turbo mode, which reduces core voltage, and sets arm and gpu frequencies to non-turbo value.  
 Capping just limits the arm frequency (somewhere between 600MHz and 1200MHz) to try to avoid throttling.  
 If you are throttled and not under-voltage then you can assume over-temperature. (confirm with vcgencmd measure_temp).  
+<br><br>
+
+
+### To check output flags
+```
+python3 -c "print(bin(int('0x50000',16)))"
+
+
+0b01110000000000000010  
+  ||||            ||||_ Under-voltage detected  
+  ||||            |||_ Arm frequency capped  
+  ||||            ||_ Currently throttled  
+  ||||            |_ Soft temperature limit active  
+  ||||_ Under-voltage has occurred since last reboot  
+  |||_ Arm frequency capped has occurred  
+  ||_ Throttling has occurred  
+  |_ Soft temperature limit has occurred  
+```
+https://harlemsquirrel.github.io/shell/2019/01/05/monitoring-raspberry-pi-power-and-thermal-issues.html
+
 
 
 <br><br><br>
