@@ -29,8 +29,7 @@ If you are throttled and not under-voltage then you can assume over-temperature.
 
 ### To check output flags  
 
-`sudo vcgencmd get_throttled | cut -d= -f2- | xargs -I {} python3 -c "print(format(int('{}',16),'#020b'))"`  
-`sudo vcgencmd get_throttled | awk -Fx '{print $2}' | xargs -I % echo "obase=2; ibase=16; %" | bc`
+`sudo vcgencmd get_throttled | cut -d= -f2- | xargs -I % echo "obase=2; ibase=16; %" | bc`  
 <br>
 ```
 0b01110000000000000010  
@@ -45,8 +44,8 @@ If you are throttled and not under-voltage then you can assume over-temperature.
 ```
 https://harlemsquirrel.github.io/shell/2019/01/05/monitoring-raspberry-pi-power-and-thermal-issues.html
 
-May be easier to see if the binary is padded with zeroes since `bin(2)` is equal to `0b10`.   
-Therefore pad to `0b00000000000000000010`.
+`sudo vcgencmd get_throttled | cut -d= -f2- | xargs -I {} python3 -c "print(format(int('{}',16),'#020b'))"`  
+`sudo vcgencmd get_throttled | awk -Fx '{print $2}' | xargs -I % echo "obase=2; ibase=16; %" | bc`  
 
 
 <br><br><br>
