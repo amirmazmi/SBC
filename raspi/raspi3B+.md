@@ -29,10 +29,10 @@ If you are throttled and not under-voltage then you can assume over-temperature.
 
 ### To check output flags  
 
+`sudo vcgencmd get_throttled | awk -F= '{print $2}' | xargs -I % python3 -c "print(format(int('%',16),'020b'))"`  
+`sudo vcgencmd get_throttled | cut -dx -f2- | xargs -I {} echo "obase=2; ibase=16; {}" | bc`
+<br>
 ```
-python3 -c "print(bin(int('0x50000',16)))"
-
-
 0b01110000000000000010  
   ||||            ||||_ Under-voltage detected  
   ||||            |||_ Arm frequency capped  
