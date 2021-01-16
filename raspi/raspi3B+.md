@@ -44,6 +44,9 @@ If you are throttled and not under-voltage then you can assume over-temperature.
 ```
 https://harlemsquirrel.github.io/shell/2019/01/05/monitoring-raspberry-pi-power-and-thermal-issues.html
 
+Easier to read output  
+`sudo vcgencmd get_throttled | cut -d= -f2- | xargs -I {} python3 -c 'binStr=format(int("{}",16),"#020b");[ print(str(i).rjust(3," "), end="") for i in range(len(binStr))]; print();[print(k.rjust(3, " "), end="") for i,k in enumerate(binStr)];print()'`
+
 `sudo vcgencmd get_throttled | cut -d= -f2- | xargs -I {} python3 -c "print(format(int('{}',16),'#020b'))"`  
 `sudo vcgencmd get_throttled | awk -Fx '{print $2}' | xargs -I % echo "obase=2; ibase=16; %" | bc`  
 
