@@ -1,4 +1,19 @@
-# Raspberry Pi 3B+ 
+# Raspberry Pi
+
+source:https://elinux.org/RPI_vcgencmd_usage
+
+<br>
+
+### General command
+`watch -n1 'vcgencmd measure_temp && vcgencmd measure_clock arm && vcgencmd get_throttled'`
+
+<br>
+
+---  
+
+<br>
+### To check frequency
+` watch -n1 vcgencmd measure_clock arm`
 
 
 ### To read cpu temps  
