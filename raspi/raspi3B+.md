@@ -65,5 +65,23 @@ Easier to read output
 `sudo vcgencmd get_throttled | cut -d= -f2- | xargs -I {} python3 -c "print(format(int('{}',16),'#020b'))"`  
 `sudo vcgencmd get_throttled | awk -Fx '{print $2}' | xargs -I % echo "obase=2; ibase=16; %" | bc`  
 
+<br>
+
+Insert into bash aliases
+```
+check_throttled() {
+      sudo vcgencmd get_throttled | cut -d= -f2- | xargs -I {} python3 -c 'binStr=format(int("{}",16),"#020b");[ print(str(i).rjust(3," "), end="") for i in range(len(binStr))]; print();[print(k.rjust(3, " "), end="") for i,k in enumerate(binStr)];print()
+      echo -e "\n2 - Under-voltage has occurred since last reboot  
+3 - Arm frequency capped has occurred  
+4 - Throttling has occurred  
+5 - Soft temperature limit has occurred 
+
+16 - Soft temperature limit active 
+17 - Currently throttled
+18 - Arm frequency capped
+19 - Under-voltage detected"
+}
+```
+
 
 <br><br><br>
