@@ -9,3 +9,10 @@ source: https://gist.github.com/amitsaha/3804320
 
 **Configure the signal strength of the HDMI interface**  
 &nbsp;&nbsp; config_hdmi_boost=5
+
+
+**Comment the following option**
+```
+# Enable DRM VC4 V3D driver
+#dtoverlay=vc4-kms-v3d
+```
