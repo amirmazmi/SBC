@@ -17,7 +17,7 @@ sudo fdisk -l
 ```  
 <br>
 
-Next create a copy using dd command and compress
+Next create a copy using dd command and compress - try larger block size 8M or 16M
 ```bash
 sudo dd bs=4M if=/dev/sdb | gzip > /home/your_username/image`date +%d%m%y`.gz
 ```
